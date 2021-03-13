@@ -1,9 +1,13 @@
-console.log('working?')
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+
+//? testing to see what is best for query
+const sun = document.querySelector('[data-sun]')
+const rays = document.querySelector('[data-rays]')
+const cloudTimer = document.querySelector('[data-cloud]')
 
 const setTimeBtn = document.getElementById('setTimeBtn')
 const inputTime = document.getElementById('inputTime')
@@ -13,7 +17,7 @@ const night = document.getElementById('night')
 const scene = document.querySelector('#scene')
 const body = document.querySelector('body')
 
-let sunRise = '06:30'
+let sunRise = '06:00'
 let sunSet = '19:30'
 let date = new Date()
 let hours = (date.getHours() < 10 ? '0' : '') + date.getHours()
@@ -25,25 +29,41 @@ let timeNow = hours + ':' + minutes
   return (timeSplit[0] * 360) / 24 + (timeSplit[1] * 360) / (24 * 60)
 } */
 
+//< animate all the things
 const rotateClock = time => {
   gsap.to(window, {
     duration: 1,
     scrollTo: () => {
+      console.log(time.replace(':', ''))
       return time.replace(':', '')
     },
   })
 }
 
-const scrollClock = gsap.to(clock, {
-  rotation: '360deg',
-  transformOrigin: 'center center',
-  scrollTrigger: {
-    trigger: 'main',
-    pin: true,
-    end: '3800 top',
-    scrub: 1,
-    // markers: true,
-  },
+const scrollClockTl = gsap
+  .timeline({
+    defaults: {
+      duration: 1,
+    },
+  })
+
+  .to(clock, {
+    rotation: '365deg',
+    transformOrigin: 'center center',
+    ease: 'none',
+  })
+
+  // .to('#cloud', { duration: 0.4, x: 100 }, 0)
+  .to(body, { duration: 0.5, backgroundColor: '#80c2ff' }, 0)
+  .to(body, { duration: 0.5, backgroundColor: '#031758' }, '>')
+
+ScrollTrigger.create({
+  trigger: 'main',
+  animation: scrollClockTl,
+  pin: true,
+  end: '2500 top',
+  scrub: 1,
+  // markers: true,
 })
 
 const dayTime = time => {
@@ -82,7 +102,6 @@ window.addEventListener('resize', e => {
 })
 
 window.addEventListener('load', e => {
-  // invoke
   setTime()
 })
 
