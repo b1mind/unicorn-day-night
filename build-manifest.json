@@ -1,0 +1,67 @@
+{
+  "inputs": {
+    "global.css": {
+      "bytes": 1194,
+      "imports": []
+    },
+    "_snowpack/pkg/gsap.js": {
+      "bytes": 196754,
+      "imports": []
+    },
+    "_snowpack/pkg/gsap/ScrollTrigger.js": {
+      "bytes": 61919,
+      "imports": []
+    },
+    "_snowpack/pkg/gsap/ScrollToPlugin.js": {
+      "bytes": 7660,
+      "imports": []
+    },
+    "src/js/index.js": {
+      "bytes": 2925,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/gsap.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/gsap/ScrollTrigger.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/gsap/ScrollToPlugin.js",
+          "kind": "import-statement"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "../~~bundle~~/global.css": {
+      "imports": [],
+      "inputs": {
+        "global.css": {
+          "bytesInOutput": 918
+        }
+      },
+      "bytes": 919
+    },
+    "../~~bundle~~/src/js/index.js": {
+      "imports": [],
+      "exports": [],
+      "inputs": {
+        "_snowpack/pkg/gsap.js": {
+          "bytesInOutput": 59793
+        },
+        "_snowpack/pkg/gsap/ScrollTrigger.js": {
+          "bytesInOutput": 19731
+        },
+        "_snowpack/pkg/gsap/ScrollToPlugin.js": {
+          "bytesInOutput": 2911
+        },
+        "src/js/index.js": {
+          "bytesInOutput": 1554
+        }
+      },
+      "bytes": 85205
+    }
+  }
+}
