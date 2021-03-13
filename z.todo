@@ -1,7 +1,10 @@
 Todo:
   ☐ set up deploy script
   ☐ play with responsivness somemore
-  ☐ see if you can target scrubbed timeline duration for time.
+  ☐ set the stage better (init*after load)
+  ☐ make timeline for scrub
 
 Archive:
+  ✔ settime and use scrollTo Plugin @done(21-03-13 06:09) @project(Todo)
+  ✔ see if you can target scrubbed timeline duration for time. @done(21-03-13 06:08) @project(Todo)
   ✔ look into scrubbing through clock animation @done(21-03-13 03:17) @project(Todo)
