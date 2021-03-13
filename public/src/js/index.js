@@ -1,8 +1,9 @@
 console.log('working?')
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const setTimeBtn = document.getElementById('setTimeBtn')
 const inputTime = document.getElementById('inputTime')
@@ -19,16 +20,17 @@ let hours = (date.getHours() < 10 ? '0' : '') + date.getHours()
 let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
 let timeNow = hours + ':' + minutes
 
-const findAngle = time => {
+/* const findAngle = time => {
   let timeSplit = time.split(':')
   return (timeSplit[0] * 360) / 24 + (timeSplit[1] * 360) / (24 * 60)
-}
+} */
 
-const rotateClock = angle => {
-  gsap.to(clock, {
+const rotateClock = time => {
+  gsap.to(window, {
     duration: 1,
-    rotation: angle,
-    transformOrigin: 'center center',
+    scrollTo: () => {
+      return time.replace(':', '')
+    },
   })
 }
 
@@ -38,41 +40,26 @@ const scrollClock = gsap.to(clock, {
   scrollTrigger: {
     trigger: 'main',
     pin: true,
+    end: '3800 top',
     scrub: 1,
-    markers: true,
-    end: '+=4200 top',
+    // markers: true,
   },
 })
 
-console.dir(rotateClock)
-
 const dayTime = time => {
-  body.classList.replace('night-time', 'day')
+  body.classList.replace('nightTime', 'day')
   console.log(`do other day stuff its ${time}`)
-  gsap.to(body, { duration: 1.5, backgroundColor: '#80C2FF' })
-  gsap.fromTo(
-    day,
-    { duration: 1, rotation: 0 },
-    { rotation: 360, transformOrigin: 'center' },
-  )
 }
 
 const nightTime = time => {
-  body.classList.replace('day', 'night-time')
+  body.classList.replace('day', 'nightTime')
   console.log(`do other night stuffs its ${time}`)
-  gsap.to(body, { duration: 1.5, backgroundColor: '#031758' })
-  gsap.fromTo(
-    night,
-    { duration: 1, rotation: 0 },
-    { duration: 1, rotation: 360, transformOrigin: 'center' },
-  )
 }
 
 const setTime = (time = timeNow) => {
   inputTime.value = time
   time <= sunSet && time >= sunRise ? dayTime(time) : nightTime(time)
-  const angle = findAngle(time)
-  rotateClock(angle)
+  rotateClock(time)
 }
 
 const updateTime = () => {
@@ -87,12 +74,16 @@ function resize(e) {
     : gsap.set(scene, { attr: { viewBox: '100 0 800 603' } })
 }
 
+//< listen up DOM
 setTimeBtn.addEventListener('click', updateTime)
 
 window.addEventListener('resize', e => {
   resize()
 })
 
-// invoke
-setTime()
+window.addEventListener('load', e => {
+  // invoke
+  setTime()
+})
+
 resize()

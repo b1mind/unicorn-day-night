@@ -8,6 +8,15 @@
   --clr-secondary-dark: #00d6dd;
   --clr-white: white;
   --clr-black: black;
+
+  //- custom props
+  .day {
+    --clr: #80c2ff;
+  }
+
+  .nightTime {
+    --clr: #031758;
+  }
 }
 
 *,
@@ -24,7 +33,8 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0;
-  background-color: skyblue;
+  background-color: var(--clr);
+  transition: background-color 0.5s linear;
 }
 
 a {
@@ -51,9 +61,10 @@ main {
   grid-template-columns: 1fr minmax(360px, 1020px) 1fr;
 }
 
-svg {
+#scene {
   width: 1020px;
   grid-column: 2;
+  grid-row: 1;
   overflow: visible;
   @media (min-width: 420px) {
     width: 100%;
@@ -61,13 +72,31 @@ svg {
 }
 
 .setTimeWrap {
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 1440px) 1fr;
   grid-column: 2;
-  place-self: center;
+  grid-row: 1;
+
+  .inputs {
+    margin-top: 5vh;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    z-index: 0;
+  }
+
+  svg {
+    min-height: 100px;
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 0;
+  }
 }
 
 .bottom {
-  width: 100%;
-  height: 300px;
+  height: 100%;
   grid-column: span 3;
-  background-color: #a3cb90;
+  background-color: var(--clr);
+  transition: all 0.5s linear;
 }
