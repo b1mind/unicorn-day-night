@@ -1,10 +1,12 @@
 Todo:
   ☐ set up deploy script
   ☐ play with responsivness somemore
-  ☐ set the stage better (init*after load)
-  ☐ make timeline for scrub
+  ☐ revisit init()
+  ☐ infinite scroll ? lol
 
 Archive:
+  ✔ set the stage better (init*after load) @done(21-03-13 08:53) @project(Todo)
+  ✔ make timeline for scrub @done(21-03-13 08:52) @project(Todo)
   ✔ settime and use scrollTo Plugin @done(21-03-13 06:09) @project(Todo)
   ✔ see if you can target scrubbed timeline duration for time. @done(21-03-13 06:08) @project(Todo)
   ✔ look into scrubbing through clock animation @done(21-03-13 03:17) @project(Todo)
