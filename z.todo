@@ -1,9 +1,4 @@
 Todo:
-  ☐ see if we can get mount / to work with index.html in url
-  ☐ includes work but only when mounted... need js data objects
-  ☐ set up a full template with pages
-
-Archive:
-  ✔ set up deploy @done(21-01-31 14:23) @project(Todo)
-  ✔ get base styles from psp-template @done(21-01-31 15:11) @project(Todo)
-  ✔ get postCSS autopre and combine media working @done(21-01-31 18:11) @project(Todo)
+  ☐ set up deploy script
+  ☐ play with responsivness somemore
+  ☐ look into scrubbing through clock animation 
