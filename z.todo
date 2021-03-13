@@ -1,4 +1,7 @@
 Todo:
   ☐ set up deploy script
   ☐ play with responsivness somemore
-  ☐ look into scrubbing through clock animation 
+  ☐ see if you can target scrubbed timeline duration for time.
+
+Archive:
+  ✔ look into scrubbing through clock animation @done(21-03-13 03:17) @project(Todo)
