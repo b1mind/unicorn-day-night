@@ -1,7 +1,7 @@
 {
   "inputs": {
     "global.css": {
-      "bytes": 1194,
+      "bytes": 1358,
       "imports": []
     },
     "_snowpack/pkg/gsap.js": {
@@ -17,7 +17,7 @@
       "imports": []
     },
     "src/js/index.js": {
-      "bytes": 3084,
+      "bytes": 2986,
       "imports": [
         {
           "path": "_snowpack/pkg/gsap.js",
@@ -39,10 +39,10 @@
       "imports": [],
       "inputs": {
         "global.css": {
-          "bytesInOutput": 918
+          "bytesInOutput": 1044
         }
       },
-      "bytes": 919
+      "bytes": 1045
     },
     "../~~bundle~~/src/js/index.js": {
       "imports": [],
@@ -58,10 +58,10 @@
           "bytesInOutput": 2911
         },
         "src/js/index.js": {
-          "bytesInOutput": 1673
+          "bytesInOutput": 1648
         }
       },
-      "bytes": 85324
+      "bytes": 85299
     }
   }
 }
