@@ -37,6 +37,8 @@ function rotateClock(time) {
   })
 }
 
+const masterTl = gsap.timeline()
+
 const scrollClockTl = gsap
   .timeline({
     defaults: {
@@ -54,15 +56,22 @@ const scrollClockTl = gsap
     0,
   )
 
+  .to(moon, { rotate: '-360deg', transformOrigin: 'center' }, 0)
+  .to(sun, { rotate: '-360deg', transformOrigin: 'center' }, 0)
+
   // .to('#cloud', { duration: 0.4, x: 100 }, 0)
   .to(lights, { duration: 0.075, fill: '#e4e4e4' }, '<+0.23')
   .to(body, { duration: 0.5, backgroundColor: '#80c2ff' }, 0)
   .to(body, { duration: 0.5, backgroundColor: '#031758' }, '>')
   .to(lights, { duration: 0.075, fill: '#FFDD64' }, '<+0.23')
 
+//todo make a masterTl ?
+masterTl.add(scrollClockTl)
+console.dir(masterTl)
+
 ScrollTrigger.create({
   trigger: 'main',
-  animation: scrollClockTl,
+  animation: masterTl,
   pin: true,
   end: '2500 top',
   scrub: 1,
