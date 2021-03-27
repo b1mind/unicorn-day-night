@@ -10,6 +10,7 @@ const moon = document.querySelector('#moon')
 const cloudTimer = document.querySelector('[data-cloud]')
 const lights = document.querySelector('[data-lights]')
 const triggers = document.querySelectorAll('.trigger section')
+const stars = document.querySelector('[data-stars]').children
 
 const setTimeBtn = document.getElementById('setTimeBtn')
 const inputTime = document.getElementById('inputTime')
@@ -47,23 +48,18 @@ const scrollClockTl = gsap
     },
   })
 
-  .to(
-    clock,
-    {
-      rotation: '365deg',
-      transformOrigin: 'center center',
-    },
-    0,
-  )
+  .to(clock, { rotation: '360deg', transformOrigin: 'center center' }, 0)
 
-  .to(moon, { rotate: '-360deg', transformOrigin: 'center' }, 0)
-  .to(sun, { rotate: '-360deg', transformOrigin: 'center' }, 0)
+  .to(moon, { rotate: '-360deg', transformOrigin: 'center center' }, 0)
+  .to(sun, { rotate: '-360deg', transformOrigin: 'center center' }, 0)
 
   // .to('#cloud', { duration: 0.4, x: 100 }, 0)
   .to(lights, { duration: 0.075, fill: '#e4e4e4' }, '<+0.23')
+  .to(stars, { duration: 0.075, autoAlpha: 0, stagger: { amount: 0.03 } }, '<')
   .to(body, { duration: 0.5, backgroundColor: '#80c2ff' }, 0)
   .to(body, { duration: 0.5, backgroundColor: '#031758' }, '>')
   .to(lights, { duration: 0.075, fill: '#FFDD64' }, '<+0.23')
+  .to(stars, { duration: 0.075, autoAlpha: 1, stagger: { amount: 0.03 } }, '<')
 
 //todo make a masterTl ?
 masterTl.add(scrollClockTl)
@@ -71,9 +67,9 @@ console.dir(masterTl)
 
 ScrollTrigger.create({
   trigger: 'main',
-  animation: masterTl,
+  animation: scrollClockTl,
   pin: true,
-  end: '2500 top',
+  end: '2400 top',
   scrub: 1,
   // markers: true,
 })
