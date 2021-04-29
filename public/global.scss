@@ -50,6 +50,7 @@ ul {
 }
 
 main {
+  min-height: 100%;
   display: grid;
   overflow: hidden;
   grid-template-columns: 1fr minmax(360px, 1020px) 1fr;
@@ -58,8 +59,10 @@ main {
 #scene {
   opacity: 0;
   width: 1020px;
+  min-height: 100%;
   grid-column: 2;
   overflow: visible;
+  grid-row: 3;
 
   @media (min-width: 420px) {
     width: 100%;
@@ -88,6 +91,10 @@ main {
   }
 }
 
+#fire {
+  transform: translateY('-50%');
+}
+
 .trigger {
   position: absolute;
   width: 100%;
@@ -100,8 +107,4 @@ main {
 
 .bottom {
   grid-column: span 3;
-
-  @media (min-height: 820px) {
-    height: 100px;
-  }
 }
