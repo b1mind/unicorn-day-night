@@ -1,18 +1,24 @@
 Todo:
-  ☐ edit readme
-  ☐ make a master timeline
-  ☐ play with responsivness somemore
-  ☐ revisit init()
+  ☐ animate sunglasses, cloud eyes, fire, tent lamps
+  ☐ add more "whismy" with eases 
   ☐ style set time btn
   ☐ input cloud better resize/no resize?
   ☐ copy back over to codepen
+  ☐ clean up unused id's
+
 
 wishList:
-  ☐ more svg details/objects and animations
+  ☐ make a master timeline?
   ☐ style time and hide select unless clicked
   ☐ infinite scroll ? lol
 
 Archive:
+  ✔ animate stars @done(21-04-29 03:22) @project(Todo)
+  ✔ more svg details/objects and animations @done(21-04-29 03:20) @project(wishList)
+  ✔ edit readme @done(21-04-29 03:19) @project(Todo)
+  ✔ align hill svg to bottom / float timer cloud? @done(21-04-29 03:17) @project(Todo)
+  ✔ play with responsivness somemore @done(21-04-29 03:12) @project(Todo)
+  ✔ revisit init() @done(21-04-29 03:12) @project(Todo)
   ✔ remake moon svg @done(21-03-14 06:15) @project(Todo)
   ✔ set up deploy script @done(21-03-13 12:48) @project(Todo)
   ✔ set the stage better (init*after load) @done(21-03-13 08:53) @project(Todo)
