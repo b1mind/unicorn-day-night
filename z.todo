@@ -1,18 +1,19 @@
 Todo:
-  ☐ animate sunglasses, cloud eyes, fire, tent lamps
-  ☐ add more "whismy" with eases 
-  ☐ style set time btn
+  ☐ animate cloud eyes, smallClouds
+  ☐ style set time btn and hide select unless clicked
   ☐ input cloud better resize/no resize?
-  ☐ copy back over to codepen
+  ☐ triggers need refreshed on resize?
   ☐ clean up unused id's
-
+  ☐ copy back over to codepen
 
 wishList:
-  ☐ make a master timeline?
-  ☐ style time and hide select unless clicked
+  ☐ make a master timeline / better timelines?
+  ☐ add more "whismy" with eases 
   ☐ infinite scroll ? lol
+  ☐ svelte component for clock/select/btn
 
 Archive:
+  ✔ animate sunglasses, fire, tent lamps @done(21-04-29 04:14) @project(Todo)
   ✔ animate stars @done(21-04-29 03:22) @project(Todo)
   ✔ more svg details/objects and animations @done(21-04-29 03:20) @project(wishList)
   ✔ edit readme @done(21-04-29 03:19) @project(Todo)
