@@ -54,44 +54,66 @@ function init() {
 
     .to(moon, { rotate: '-360deg', transformOrigin: 'center center' }, 0)
     .to(sun, { rotate: '-360deg', transformOrigin: 'center center' }, 0)
-    .set(glasses, { duration: 0.075, autoAlpha: 0 }, 0)
+    .set(glasses, { duration: 0.075, y: '-10px', autoAlpha: 0 }, 0)
 
     // .to('#cloud', { duration: 0.4, x: 100 }, 0)
     .to(lights, { duration: 0.075, fill: '#e4e4e4' }, '<+0.23')
     .to(
       stars,
-      { duration: 0.075, autoAlpha: 0, stagger: { amount: 0.03 } },
-      '<',
+      { duration: 0.075, autoAlpha: 0, stagger: { amount: 0.05 } },
+      '<-0.025',
     )
-    .to(body, { duration: 0.5, backgroundColor: '#031758' }, '>')
 
     .to(
       fire,
       {
         duration: 0.075,
+        opacity: 0,
         scaleY: 0,
+        transformOrigin: 'bottom center',
+        ease: 'back.in',
+      },
+      '>',
+    )
+    .to(
+      fire,
+      {
+        duration: 0.065,
+        scaleX: 0,
         transformOrigin: 'bottom center',
         ease: 'back.in',
       },
       '<',
     )
+    .to(glasses, { duration: 0.055, y: 0, autoAlpha: 1 }, '<')
+    .to(body, { duration: 0.5, backgroundColor: '#031758' }, '>')
 
-    .to(glasses, { duration: 0.075, autoAlpha: 1 }, '<')
     .to(lights, { duration: 0.075, fill: '#FFDD64' }, '<+0.23')
     .to(
       fire,
       {
         duration: 0.075,
+        opacity: 1,
         scaleY: 1,
+        transformOrigin: 'bottom center',
+        ease: 'back',
+      },
+      '>',
+    )
+    .to(
+      fire,
+      {
+        duration: 0.065,
+        scaleX: 1,
         transformOrigin: 'bottom center',
         ease: 'back',
       },
       '<',
     )
-    .to(glasses, { duration: 0.075, autoAlpha: 0 }, '<')
+    .to(glasses, { duration: 0.055, y: '-10px', autoAlpha: 0 }, '<')
     .to(
       stars,
-      { duration: 0.075, autoAlpha: 1, stagger: { amount: 0.03 } },
+      { duration: 0.075, autoAlpha: 1, stagger: { amount: 0.08 } },
       '<',
     )
 
@@ -99,6 +121,7 @@ function init() {
   masterTl.add(scrollClockTl)
   console.dir(masterTl)
 
+  //todo Infinite scroll
   ScrollTrigger.create({
     trigger: 'main',
     animation: scrollClockTl,
