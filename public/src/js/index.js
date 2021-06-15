@@ -4,19 +4,18 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
-//? testing to see what is best for query
+const scene = document.querySelector('#scene')
+const body = document.querySelector('body')
 const sun = document.querySelector('#sun')
 const moon = document.querySelector('#moon')
-const lights = document.querySelector('#lights')
 const stars = document.querySelector('#stars').children
+const lights = document.querySelector('#lights')
+const glasses = document.getElementById('sunGlasses')
+const fire = document.getElementById('fire')
 
 const setTimeBtn = document.getElementById('setTimeBtn')
 const inputTime = document.getElementById('inputTime')
 const clock = document.getElementById('clock')
-const scene = document.querySelector('#scene')
-const body = document.querySelector('body')
-const glasses = document.getElementById('sunGlasses')
-const fire = document.getElementById('fire')
 
 let sunRise = '06:00'
 let sunSet = '19:30'
@@ -55,9 +54,8 @@ function init() {
     .to(moon, { rotate: '-360deg', transformOrigin: 'center center' }, 0)
     .to(sun, { rotate: '-360deg', transformOrigin: 'center center' }, 0)
     .set(glasses, { duration: 0.075, y: '-10px', autoAlpha: 0 }, 0)
-
-    // .to('#cloud', { duration: 0.4, x: 100 }, 0)
     .to(lights, { duration: 0.075, fill: '#e4e4e4' }, '<+0.23')
+
     .to(
       stars,
       { duration: 0.075, autoAlpha: 0, stagger: { amount: 0.05 } },
@@ -75,6 +73,7 @@ function init() {
       },
       '>',
     )
+
     .to(
       fire,
       {
@@ -85,10 +84,11 @@ function init() {
       },
       '<',
     )
+
     .to(glasses, { duration: 0.055, y: 0, autoAlpha: 1 }, '<')
     .to(body, { duration: 0.5, backgroundColor: '#031758' }, '>')
-
     .to(lights, { duration: 0.075, fill: '#FFDD64' }, '<+0.23')
+
     .to(
       fire,
       {
@@ -100,6 +100,7 @@ function init() {
       },
       '>',
     )
+
     .to(
       fire,
       {
@@ -110,6 +111,7 @@ function init() {
       },
       '<',
     )
+
     .to(glasses, { duration: 0.055, y: '-10px', autoAlpha: 0 }, '<')
     .to(
       stars,
@@ -126,10 +128,24 @@ function init() {
     trigger: 'main',
     animation: scrollClockTl,
     pin: true,
-    end: '+=2400 top',
+    start: 'top top',
+    end: `+=2400 top`,
     scrub: 1,
+
+    onScrubComplete: function (e) {
+      scrollClockTl.play(0)
+      window.scrollTo(0, 0)
+    },
     // markers: true,
   })
+
+  // ScrollTrigger.create({
+  //   start: 1,
+  //   end: () => ScrollTrigger.maxScroll(window) - 1,
+  //   onLeaveBack: self => self.scroll(ScrollTrigger.maxScroll(window) - 2),
+  //   onLeave: self => self.scroll(2),
+  //   markers: true,
+  // }).scroll(2)
 
   function dayTime(time) {
     body.classList.replace('night', 'day')
